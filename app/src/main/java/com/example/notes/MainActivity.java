@@ -1,6 +1,7 @@
 package com.example.notes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recyclerViewNotes=findViewById(R.id.RecyclerViewNotes);
         notes.add(new Note("Парикмахер", "Сделать прическу", "Понедельник", 2));
         notes.add(new Note("Баскетбол", "Игра со школьной командой", "Вторник", 3));
         notes.add(new Note("Магазин", "Купить новые джинсы", "Понедельник", 3));
@@ -21,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         notes.add(new Note("Парикмахер", "Сделать прическу к выпускному", "Среда", 1));
         notes.add(new Note("Баскетбол", "Игра со школьной командой", "Вторник", 3));
         notes.add(new Note("Магазин", "Купить новые джинсы", "Понедельник", 3));
+        NotesAdapter adapter=new NotesAdapter(notes);
+        recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewNotes.setAdapter(adapter);
+
 
     }
 }

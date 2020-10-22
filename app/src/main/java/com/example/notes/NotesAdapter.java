@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
+    public NotesAdapter(ArrayList<Note> notes) {
+        this.notes = notes;
+    }
 
     private ArrayList<Note>  notes;
     @NonNull
